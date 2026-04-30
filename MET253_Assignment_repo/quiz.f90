@@ -1,28 +1,30 @@
 program student_report
 implicit none
-integer,dimension(10):scores
 integer::i
+integer,dimension(10)::scores=(/85,62,45,91,38,74,55,88,61,47/)
 character::grade
 character(len=12)::remark
-scores=(/85,62,45,91,38,74,55,88,61,47/)
+print*,'scores   grades   remarks'
+print*,'--------------------------------'
 do i=1,10
-   if (scores>=80) then
-   print*,'A',grade,   'Distinction',remark
-   else if (scores >=60) then
-   print*,'B',grade,    'Credit',remark
-   else if (scores >=40) then
-   print*,'C',grade,   'Pass',remark
-   else if (scores >=0) then 
-   print*,'F',grade,     'Fail',remark
+   if (scores(i) >=80) then
+      grade='A'
+      remark='distinction'
+   else if (scores(i) >=60) then
+       grade='B'
+       remark='credit'
+   else if (scores(i) >=40) then
+       grade='C'
+       remark='pass'
+   else 
+       grade='F'
+       remark='fail'
    end if
-print*
-print*, scores   grade   remark
-print*,'-----------------------------------'
-end do
-print*,'(I3,5x,I5,5x,A1,8x,A12)', scores,  grade,  remark
+   print*,'(I2,5X,A1,5X,A12)',scores(i), grade, remark
+   end do
 end program student_report
    
 
 
-!mensah wilhelmina
+!Mensah wilhelmina
 !6310824
